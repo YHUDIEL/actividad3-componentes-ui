@@ -1,8 +1,8 @@
-# UI Components
+# Actividad 3 - Componentes UI
 
-Libreria de componentes visuales interactivos construida con JavaScript vanilla, sin dependencias ni frameworks. Incluye dos componentes reutilizables: Modal y Toast.
+Yhudiel Mendoza Saucedo — No. de control: 22161164
 
-El Modal resuelve la necesidad de mostrar ventanas emergentes configurables sin reescribir HTML cada vez. El Toast permite mostrar notificaciones temporales flotantes con distintos tipos y posiciones, sin interrumpir el flujo del usuario.
+Libreria de componentes visuales interactivos hecha en JavaScript puro, sin frameworks ni dependencias. Incluye dos componentes reutilizables: Modal y Toast. Cada uno puede instanciarse con distintos parametros o contenido sin reescribir el codigo del componente.
 
 ---
 
@@ -15,25 +15,23 @@ Incluye el CSS en el `<head>` y el JS antes de cerrar `</body>`:
 <script src="js/componente.js"></script>
 ```
 
-No requiere ninguna instalacion adicional ni gestor de paquetes.
-
 ---
 
 ## Modal
 
-Muestra una ventana emergente con titulo, contenido, y botones de accion. Se cierra haciendo clic fuera del cuadro o presionando Escape.
+Ventana emergente configurable. Se cierra con el boton X, presionando Escape o haciendo clic fuera del cuadro.
 
 ### Parametros
 
 | Parametro | Tipo | Default | Descripcion |
 |---|---|---|---|
-| `title` | string | `''` | Titulo del modal |
-| `content` | string | `''` | Contenido del cuerpo, acepta HTML |
-| `confirmText` | string | `'Aceptar'` | Texto del boton principal |
-| `cancelText` | string | `'Cancelar'` | Texto del boton secundario |
-| `showCancel` | boolean | `true` | Muestra u oculta el boton cancelar |
-| `onConfirm` | function | `null` | Callback al confirmar |
-| `onCancel` | function | `null` | Callback al cancelar o cerrar |
+| `titulo` | string | `''` | Titulo del modal |
+| `contenido` | string | `''` | Contenido del cuerpo, acepta HTML |
+| `textoConfirmar` | string | `'Aceptar'` | Texto del boton principal |
+| `textoCancelar` | string | `'Cancelar'` | Texto del boton secundario |
+| `mostrarCancelar` | boolean | `true` | Muestra u oculta el boton cancelar |
+| `alConfirmar` | function | `null` | Callback al confirmar |
+| `alCancelar` | function | `null` | Callback al cancelar o cerrar |
 
 ### Uso basico
 
@@ -42,16 +40,16 @@ Muestra una ventana emergente con titulo, contenido, y botones de accion. Se cie
 <script>
   document.getElementById('mi-boton').addEventListener('click', function () {
     UIModal.open({
-      title: 'Confirmar accion',
-      content: 'Esta accion no se puede deshacer. ¿Deseas continuar?',
-      confirmText: 'Si, continuar',
-      cancelText: 'Cancelar',
-      onConfirm: function () {
+      titulo: 'Confirmar accion',
+      contenido: 'Esta accion no se puede deshacer. ¿Deseas continuar?',
+      textoConfirmar: 'Si, continuar',
+      textoCancelar: 'Cancelar',
+      alConfirmar: function () {
         console.log('El usuario confirmo');
       },
-      onCancel: function () {
+      alCancelar: function () {
         console.log('El usuario cancelo');
-      },
+      }
     });
   });
 </script>
@@ -61,10 +59,10 @@ Muestra una ventana emergente con titulo, contenido, y botones de accion. Se cie
 
 ```js
 UIModal.open({
-  title: 'Aviso',
-  content: 'Tu sesion expirara en 5 minutos.',
-  confirmText: 'Entendido',
-  showCancel: false,
+  titulo: 'Aviso',
+  contenido: 'Tu sesion expirara en 5 minutos.',
+  textoConfirmar: 'Entendido',
+  mostrarCancelar: false
 });
 ```
 
@@ -78,44 +76,44 @@ UIModal.close();
 
 ## Toast
 
-Muestra una notificacion flotante temporal en una esquina de la pantalla. Desaparece automaticamente o puede cerrarse manualmente.
+Notificacion flotante temporal. Desaparece automaticamente o se puede cerrar manualmente.
 
 ### Parametros
 
 | Parametro | Tipo | Default | Descripcion |
 |---|---|---|---|
-| `message` | string | `''` | Texto de la notificacion |
-| `type` | string | `'info'` | Tipo: `info`, `success`, `warning`, `error` |
-| `duration` | number | `3000` | Milisegundos antes de desaparecer. `0` para no cerrar solo |
-| `position` | string | `'bottom-right'` | Posicion: `bottom-right`, `bottom-left`, `top-right`, `top-left`, `top-center` |
+| `mensaje` | string | `''` | Texto de la notificacion |
+| `tipo` | string | `'info'` | Tipo: `info`, `success`, `warning`, `error` |
+| `duracion` | number | `3000` | Milisegundos antes de desaparecer. `0` para no cerrar solo |
+| `posicion` | string | `'bottom-right'` | Posicion: `bottom-right`, `top-center` |
 
 ### Uso basico
 
 ```js
 UIToast.show({
-  message: 'Cambios guardados correctamente',
-  type: 'success',
+  mensaje: 'Cambios guardados correctamente',
+  tipo: 'success'
 });
 ```
 
-### Toast con posicion y duracion personalizadas
+### Toast con duracion personalizada
 
 ```js
 UIToast.show({
-  message: 'Actualizacion disponible',
-  type: 'info',
-  duration: 5000,
-  position: 'top-center',
+  mensaje: 'Actualizacion disponible',
+  tipo: 'info',
+  duracion: 5000,
+  posicion: 'top-center'
 });
 ```
 
-### Toast persistente (sin auto-cierre)
+### Toast sin auto-cierre
 
 ```js
 UIToast.show({
-  message: 'Conexion perdida. Verifica tu red.',
-  type: 'error',
-  duration: 0,
+  mensaje: 'Conexion perdida. Verifica tu red.',
+  tipo: 'error',
+  duracion: 0
 });
 ```
 
@@ -124,7 +122,7 @@ UIToast.show({
 ## Estructura del repositorio
 
 ```
-ui-components/
+actividad3-componentes-ui/
 ├── index.html
 ├── README.md
 ├── css/
@@ -134,15 +132,3 @@ ui-components/
 │   └── demo.js
 └── img/
 ```
-
----
-
-## Capturas de pantalla
-
-Agregar capturas del componente funcionando en esta seccion.
-
----
-
-## Video
-
-Agregar enlace al video demostrativo de maximo 1 minuto en esta seccion.

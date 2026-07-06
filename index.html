@@ -5,176 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Actividad 3 - Componentes UI</title>
     <link rel="stylesheet" href="css/componente.css" />
-    <style>
-      body {
-        margin: 0;
-        font-family: system-ui, -apple-system, sans-serif;
-        background: #f9fafb;
-        color: #111827;
-      }
-
-      header {
-        background: #111827;
-        color: #f9fafb;
-        padding: 28px 40px;
-      }
-
-      header h1 {
-        margin: 0 0 6px;
-        font-size: 1.6rem;
-        font-weight: 700;
-      }
-
-      header p {
-        margin: 0;
-        font-size: 0.95rem;
-        color: #9ca3af;
-      }
-
-      main {
-        max-width: 860px;
-        margin: 48px auto;
-        padding: 0 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
-      }
-
-      section h2 {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin: 0 0 6px;
-        color: #111827;
-      }
-
-      section p {
-        font-size: 0.9rem;
-        color: #6b7280;
-        margin: 0 0 20px;
-      }
-
-      .demo-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .demo-btn {
-        padding: 10px 20px;
-        border-radius: 8px;
-        border: 1.5px solid #e5e7eb;
-        background: #ffffff;
-        font-size: 0.9rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: border-color 0.15s, background 0.15s;
-        font-family: inherit;
-        color: #374151;
-      }
-
-      .demo-btn:hover {
-        border-color: #2563eb;
-        color: #2563eb;
-        background: #eff6ff;
-      }
-
-      .demo-btn.info {
-        background: #1e40af;
-        color: #fff;
-        border-color: #1e40af;
-      }
-
-      .demo-btn.info:hover {
-        background: #1d4ed8;
-        border-color: #1d4ed8;
-        color: #fff;
-      }
-
-      .demo-btn.success {
-        background: #15803d;
-        color: #fff;
-        border-color: #15803d;
-      }
-
-      .demo-btn.success:hover {
-        background: #166534;
-        border-color: #166534;
-        color: #fff;
-      }
-
-      .demo-btn.warning {
-        background: #b45309;
-        color: #fff;
-        border-color: #b45309;
-      }
-
-      .demo-btn.warning:hover {
-        background: #92400e;
-        border-color: #92400e;
-        color: #fff;
-      }
-
-      .demo-btn.error {
-        background: #b91c1c;
-        color: #fff;
-        border-color: #b91c1c;
-      }
-
-      .demo-btn.error:hover {
-        background: #991b1b;
-        border-color: #991b1b;
-        color: #fff;
-      }
-
-      .divider {
-        border: none;
-        border-top: 1px solid #e5e7eb;
-        margin: 0;
-      }
-
-      footer {
-        text-align: center;
-        padding: 32px;
-        font-size: 0.8rem;
-        color: #9ca3af;
-      }
-    </style>
   </head>
   <body>
-    <header>
-      <h1>UI Components</h1>
-      <p>Libreria de componentes visuales interactivos — Modal y Toast</p>
-    </header>
+    <div class="tarjeta">
+      <h1>Componentes UI</h1>
+      <p class="descripcion">
+        Libreria de componentes visuales reutilizables hecha en JavaScript puro.
+        Cada boton llama a <code>UIModal.open()</code> o <code>UIToast.show()</code>
+        con distintos parametros, sin reescribir el componente cada vez.
+      </p>
 
-    <main>
-      <section>
-        <h2>Modal</h2>
-        <p>Ventana emergente configurable con titulo, contenido, botones de accion y cierre por teclado o clic exterior.</p>
-        <div class="demo-grid">
-          <button class="demo-btn" id="btn-modal-basico">Modal basico</button>
-          <button class="demo-btn" id="btn-modal-confirm">Modal de confirmacion</button>
-          <button class="demo-btn" id="btn-modal-solo-ok">Modal sin cancelar</button>
-          <button class="demo-btn" id="btn-modal-html">Modal con contenido HTML</button>
-        </div>
-      </section>
-
-      <hr class="divider" />
-
-      <section>
-        <h2>Toast</h2>
-        <p>Notificacion temporal flotante con cuatro tipos y posicionamiento configurable.</p>
-        <div class="demo-grid">
-          <button class="demo-btn info" id="btn-toast-info">Info</button>
-          <button class="demo-btn success" id="btn-toast-success">Exito</button>
-          <button class="demo-btn warning" id="btn-toast-warning">Advertencia</button>
-          <button class="demo-btn error" id="btn-toast-error">Error</button>
-          <button class="demo-btn" id="btn-toast-top">Posicion superior</button>
-          <button class="demo-btn" id="btn-toast-persistente">Sin auto-cierre</button>
-        </div>
-      </section>
-    </main>
-
-    <footer>UI Components — Vanilla JavaScript, sin frameworks</footer>
+      <div class="grupo-botones">
+        <button class="btn-azul" id="btn-modal-basico">Abrir modal informativo</button>
+        <button class="btn-naranja" id="btn-modal-confirm">Abrir modal de confirmacion</button>
+        <button class="btn-azul" id="btn-toast-info">Mostrar aviso informativo</button>
+        <button class="btn-verde" id="btn-toast-success">Mostrar mensaje de exito</button>
+        <button class="btn-rojo" id="btn-toast-error">Mostrar mensaje de error</button>
+        <button class="btn-azul" id="btn-toast-varios">Mostrar varios toasts seguidos</button>
+      </div>
+    </div>
 
     <script src="js/componente.js"></script>
     <script src="js/demo.js"></script>

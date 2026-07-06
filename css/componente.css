@@ -1,224 +1,257 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #09006b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.tarjeta {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    max-width: 460px;
+    width: 90%;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+p.descripcion {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
+p.descripcion code {
+    font-family: monospace;
+    background: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.grupo-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    transition: opacity 0.2s;
+    font-family: inherit;
+}
+
+button:hover {
+    opacity: 0.88;
+}
+
+button:active {
+    opacity: 0.75;
+}
+
+.btn-azul {
+    background-color: #1a6fe8;
+}
+
+.btn-verde {
+    background-color: #22c55e;
+}
+
+.btn-rojo {
+    background-color: #ef4444;
+}
+
+.btn-naranja {
+    background-color: #f97316;
 }
 
 .ui-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  opacity: 0;
-  transition: opacity 0.25s ease;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.22s ease;
 }
 
-.ui-modal-overlay--active {
-  opacity: 1;
+.ui-modal-overlay.activo {
+    opacity: 1;
 }
 
 .ui-modal {
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
-  max-width: 520px;
-  width: 90%;
-  transform: translateY(-20px) scale(0.98);
-  transition: transform 0.25s ease;
-  overflow: hidden;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    max-width: 480px;
+    width: 90%;
+    transform: translateY(-16px);
+    transition: transform 0.22s ease;
+    overflow: hidden;
 }
 
-.ui-modal-overlay--active .ui-modal {
-  transform: translateY(0) scale(1);
+.ui-modal-overlay.activo .ui-modal {
+    transform: translateY(0);
 }
 
 .ui-modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 24px 0;
 }
 
-.ui-modal-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0;
-  color: #111827;
-  font-family: inherit;
+.ui-modal-titulo {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    color: #111;
 }
 
-.ui-modal-close {
-  background: none;
-  border: none;
-  font-size: 1.6rem;
-  line-height: 1;
-  cursor: pointer;
-  color: #9ca3af;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  transition: color 0.15s;
+.ui-modal-cerrar {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #aaa;
+    padding: 0;
+    width: auto;
+    line-height: 1;
+    transition: color 0.15s;
 }
 
-.ui-modal-close:hover {
-  color: #111827;
+.ui-modal-cerrar:hover {
+    color: #333;
+    opacity: 1;
 }
 
-.ui-modal-body {
-  padding: 16px 24px 20px;
-  color: #374151;
-  font-size: 0.95rem;
-  line-height: 1.65;
+.ui-modal-cuerpo {
+    padding: 14px 24px 20px;
+    color: #444;
+    font-size: 14px;
+    line-height: 1.65;
 }
 
-.ui-modal-footer {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  padding: 0 24px 22px;
+.ui-modal-pie {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding: 0 24px 22px;
 }
 
-.ui-btn {
-  padding: 10px 22px;
-  border: none;
-  border-radius: 7px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.18s, transform 0.1s;
-  font-family: inherit;
+.ui-modal-pie button {
+    width: auto;
+    padding: 10px 22px;
+    font-size: 14px;
 }
 
-.ui-btn:active {
-  transform: scale(0.97);
+.ui-modal-pie .btn-confirmar {
+    background-color: #1a6fe8;
 }
 
-.ui-btn-primary {
-  background: #2563eb;
-  color: #ffffff;
+.ui-modal-pie .btn-cancelar {
+    background-color: #e5e7eb;
+    color: #333;
 }
 
-.ui-btn-primary:hover {
-  background: #1d4ed8;
+.ui-modal-pie .btn-cancelar:hover {
+    opacity: 0.8;
 }
 
-.ui-btn-secondary {
-  background: #f3f4f6;
-  color: #374151;
+.ui-toast-contenedor {
+    position: fixed;
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    pointer-events: none;
+    max-width: 400px;
 }
 
-.ui-btn-secondary:hover {
-  background: #e5e7eb;
+.ui-toast-contenedor[data-pos="bottom-right"] {
+    bottom: 0;
+    right: 0;
+    align-items: flex-end;
 }
 
-.ui-toast-container {
-  position: fixed;
-  z-index: 1100;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 16px;
-  pointer-events: none;
-  max-width: 420px;
-}
-
-.ui-toast-container[data-position="bottom-right"] {
-  bottom: 0;
-  right: 0;
-  align-items: flex-end;
-}
-
-.ui-toast-container[data-position="bottom-left"] {
-  bottom: 0;
-  left: 0;
-  align-items: flex-start;
-}
-
-.ui-toast-container[data-position="top-right"] {
-  top: 0;
-  right: 0;
-  align-items: flex-end;
-}
-
-.ui-toast-container[data-position="top-left"] {
-  top: 0;
-  left: 0;
-  align-items: flex-start;
-}
-
-.ui-toast-container[data-position="top-center"] {
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  align-items: center;
-  max-width: 100%;
+.ui-toast-contenedor[data-pos="top-center"] {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    max-width: 100%;
 }
 
 .ui-toast {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 13px 16px;
-  border-radius: 9px;
-  font-size: 0.88rem;
-  font-weight: 500;
-  min-width: 260px;
-  max-width: 400px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
-  pointer-events: all;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 260px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    pointer-events: all;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    font-family: inherit;
+    color: white;
 }
 
-.ui-toast--visible {
-  opacity: 1;
-  transform: translateY(0);
+.ui-toast.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.ui-toast--info {
-  background: #1e40af;
-  color: #ffffff;
-}
-
-.ui-toast--success {
-  background: #15803d;
-  color: #ffffff;
-}
-
-.ui-toast--warning {
-  background: #b45309;
-  color: #ffffff;
-}
-
-.ui-toast--error {
-  background: #b91c1c;
-  color: #ffffff;
-}
+.ui-toast.info    { background: #1a6fe8; }
+.ui-toast.success { background: #22c55e; }
+.ui-toast.warning { background: #f97316; }
+.ui-toast.error   { background: #ef4444; }
 
 .ui-toast span {
-  flex: 1;
+    flex: 1;
 }
 
-.ui-toast-close {
-  background: none;
-  border: none;
-  color: inherit;
-  font-size: 1.1rem;
-  cursor: pointer;
-  opacity: 0.75;
-  padding: 0;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  transition: opacity 0.15s;
-  flex-shrink: 0;
+.ui-toast-cerrar {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    width: auto;
+    opacity: 0.75;
+    line-height: 1;
+    transition: opacity 0.15s;
 }
 
-.ui-toast-close:hover {
-  opacity: 1;
+.ui-toast-cerrar:hover {
+    opacity: 1;
 }
