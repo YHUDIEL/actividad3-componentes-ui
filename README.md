@@ -1,6 +1,6 @@
 # Actividad 3 - Componentes UI
 
-Yhudiel Mendoza Saucedo — No. de control: 22161164
+Yhudiel Mendoza Sanchez — No. de control: 22161164
 
 Libreria de componentes visuales interactivos hecha en JavaScript puro, sin frameworks ni dependencias. Incluye dos componentes reutilizables: Modal y Toast. Cada uno puede instanciarse con distintos parametros o contenido sin reescribir el codigo del componente.
 
